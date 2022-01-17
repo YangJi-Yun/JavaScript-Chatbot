@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/Day06/calculator.css">
+    <title>계산기 만들기</title>
+</head>
+<body>
+    <div class="container">
+        <span>계산기</span>
+        <div id="operator"><div id="answer_operator"></div></div>
+        <div id="answer"><div id="answer_result"></div></div>
+        <div onclick="reset()" class="reset">reset</div>
+        <div id="cal_box">
+            <!-- <div onclick="select(0)" value="7" class="num">7</div>
+            <div onclick="select(1)" value="8" class="num">8</div>
+            <div onclick="select(2)" value="9" class="num">9</div>
+            <div onclick="select(3)" value="÷" class="calculation">÷</div>
+            <div onclick="select(4)" value="4" class="num">4</div>
+            <div onclick="select(5)" value="5" class="num">5</div>
+            <div onclick="select(6)" value="6" class="num">6</div>
+            <div onclick="select(7)" value="x"class="calculation">x</div>
+            <div onclick="select(8)" value="1" class="num">1</div>
+            <div onclick="select(9)" value="2" class="num">2</div>
+            <div onclick="select(10)" value="3" class="num">3</div>
+            <div onclick="select(11)" value="－" class="calculation">－</div>
+            <div onclick="select(12)" value="dot" class="num">.</div>
+            <div onclick="select(13)" value="0" class="num">0</div>
+            <div onclick="select(14)" value="=" id="result">=</div>
+            <div onclick="select(15)" value="＋" class="calculation">＋</div> -->
+            <div onclick="selectNum(0)" value="7" class="num">7</div>
+            <div onclick="selectNum(1)" value="8" class="num">8</div>
+            <div onclick="selectNum(2)" value="9" class="num">9</div>
+            <div onclick="selectCal(0)" value="÷" class="calculation">÷</div>
+            <div onclick="selectNum(3)" value="4" class="num">4</div>
+            <div onclick="selectNum(4)" value="5" class="num">5</div>
+            <div onclick="selectNum(5)" value="6" class="num">6</div>
+            <div onclick="selectCal(1)" value="x"class="calculation">x</div>
+            <div onclick="selectNum(6)" value="1" class="num">1</div>
+            <div onclick="selectNum(7)" value="2" class="num">2</div>
+            <div onclick="selectNum(8)" value="3" class="num">3</div>
+            <div onclick="selectCal(2)" value="－" class="calculation">－</div>
+            <div onclick="selectNum(9)" value="." class="num">.</div>
+            <div onclick="selectNum(10)" value="0" class="num">0</div>
+            <div onclick="arithmeticOperator()" value="=" id="result">=</div>
+            <div onclick="selectCal(3)" value="＋" class="calculation">＋</div>
+        </div>
+    </div>
+    <script src="/Day06/calculator.js"></script>
+</body>
+</html>

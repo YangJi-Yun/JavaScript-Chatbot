@@ -1,0 +1,56 @@
+:root {
+  --back-color: #e6e6e6;
+  --num-color: #fafafa;
+  --cal-color: #f0f0f0;
+  --blue-color: #8ab1d0;
+  --black-color: #000;
+}
+.container {
+  width: 300px;
+  border: 1px solid var(--black-color);
+  background-color: var(--back-color);
+}
+#answer {
+  height: 100px;
+  border: 1px solid black;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+#answer_result {
+  font-size: 50px;
+  padding-right: 20px;
+  text-align: end;
+}
+#operator {
+  border: 1px solid black;
+  height: 50px;
+}
+.reset {
+  margin-top: 10px;
+  padding-right: 20px;
+  text-align: end;
+}
+#cal_box {
+  text-align: center;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+.num,
+.calculation,
+#result {
+  margin: 10px;
+  width: 50px;
+  height: 40px;
+  line-height: 40px;
+}
+.num {
+  background-color: var(--num-color);
+}
+.calculation {
+  background-color: var(--cal-color);
+}
+#result {
+  background-color: var(--blue-color);
+}
