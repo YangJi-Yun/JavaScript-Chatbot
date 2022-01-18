@@ -1,0 +1,35 @@
+.tit {
+  margin: 20px;
+  font-size: 50px;
+  text-align: center;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  margin: auto;
+}
+#time {
+  font-size: 40px;
+  font-weight: 700;
+}
+.btn {
+  text-align: center;
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+}
+.btn button {
+  width: 100px;
+  height: 30px;
+  border-radius: 5px;
+  border: none;
+  margin-bottom: 10px;
+  background-color: #484fd9;
+  color: white;
+  font-size: 14px;
+}
+.btn button:last-child {
+  margin-bottom: 0;
+}
