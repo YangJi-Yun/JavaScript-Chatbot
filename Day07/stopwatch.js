@@ -3,22 +3,33 @@ let s=0, m=0, h=0;
 let timer;
 function timerStart(){
     s++;
-    if(s>=10){
+    if(s>=60){
         s=0;
         m++;
-        if(m>=10){
+        if(m>=60){
             m=0;
             h++;
         }
     }
     if(0<=s<10 || 0<=m<10 || 0<=h<10){
-        time.innerHTML="0"+h+":"+"0"+m+":"+"0"+s;
+        let text="";
+        if(0<=h<10) text+="0"+h;
+        else text+=h;
+
+        if(0<=m<10) text+=":0"+m;
+        else text+=":"+m;
+
+        if(0<=s<10) text+=":0"+s;
+        else text+=":"+s;
+
+        time.innerHTML=text;
     }else{
         time.innerHTML=h+":"+m+":"+s;
     }
     timer=setTimeout(timerStart, 1000);
 }
 function timerStop(){
+    if(timer!=null)
     clearTimeout(timer);
 }
 function timerReset(){
