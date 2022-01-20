@@ -1,0 +1,32 @@
+body {
+  padding: 50px;
+  color: #706e72;
+}
+.container {
+  width: 50%;
+}
+.list {
+  border: 1px solid #cbcbcb;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  padding: 10px;
+}
+#first[open] .tit,
+#second[open] .tit,
+#third[open] .tit {
+  background-color: #0080ff;
+  color: white;
+  margin: -11px -11px 0;
+  border: 1px solid #1c5697;
+  border-radius: 5px 5px 0 0;
+  padding: 10px;
+}
+.tit {
+  font-size: 25px;
+}
+.info {
+  font-size: 20px;
+}
+.plot {
+  white-space: pre-line;
+}
