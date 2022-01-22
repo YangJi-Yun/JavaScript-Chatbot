@@ -1,0 +1,122 @@
+:root {
+  --num-font-size: 28px;
+  --text-font-size: 10px;
+  --grey-color: #dfdee5;
+}
+.container {
+  width: 300px;
+  height: 600px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.img {
+  position: absolute;
+}
+#show {
+  position: relative;
+  margin-top: 18px;
+  width: 260px;
+  height: 160px;
+  line-height: 160px;
+  font-size: 30px;
+  text-align: center;
+  overflow: hidden;
+}
+#show #show_num {
+  height: 60px;
+}
+#show #phone_call {
+  font-size: 10px;
+  display: none;
+}
+.btn_box {
+  position: relative;
+  width: 260px;
+  height: 300px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+  align-items: center;
+  z-index: 10000;
+}
+.number {
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 5px solid var(--grey-color);
+  border-radius: 100%;
+  background-color: var(--grey-color);
+}
+.num {
+  font-size: var(--num-font-size);
+}
+.text {
+  display: flex;
+  flex-direction: column;
+  font-size: var(--text-font-size);
+}
+.text span {
+  display: inline-block;
+  width: 20px;
+}
+.calling {
+  width: 260px;
+  height: 80px;
+  line-height: 80px;
+  position: relative;
+  text-align: center;
+}
+.calling i {
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 100%;
+  color: white;
+}
+.call_box {
+  position: relative;
+  width: 260px;
+  height: 300px;
+  display: none;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+  align-items: center;
+}
+.call_box .icons {
+  text-align: center;
+  font-size: 14px;
+}
+.call_box .icons i {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border: 5px solid var(--grey-color);
+  border-radius: 100%;
+  background-color: var(--grey-color);
+}
+.call_box #google_cons .material-icons-outlined {
+  border: 1px solid red;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  border: 1px solid var(--grey-color);
+  border-radius: 100%;
+  background-color: var(--grey-color);
+}
+.call_box #google_cons .material-icons-outlined span {
+  font-size: 14px;
+}
+.calling .end {
+  background-color: red;
+  transform: rotate(135deg);
+}

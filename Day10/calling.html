@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/Day10/calling.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+    <!-- https://material.io/resources/icons/?style=baseline -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+    <!-- https://material.io/resources/icons/?style=outline -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined" rel="stylesheet">
+    <!-- https://material.io/resources/icons/?style=round -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Round" rel="stylesheet">
+    <!-- https://material.io/resources/icons/?style=sharp -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Sharp" rel="stylesheet">
+    <!-- https://material.io/resources/icons/?style=twotone -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Two+Tone" rel="stylesheet">
+
+    <title>이름, 전화번호 출력하기</title>
+</head>
+<body>
+    <div class="container">
+        <div class="img">
+            <img src="/Day10/image/iphone.png" alt="iphone" style="width: 300px; height:600px;">
+        </div>
+        <div id="show">
+            <div id="show_num"></div>
+            <div id="phone_call">연결중<span id="dot"></span></div>
+        </div>
+        <div class="btn_box">
+            <button class="number" value="1">
+                <div class="num" ><span>1</span></div>
+                <div class="text"><span>ㄱㅋ</span><span>.QZ</span></div>
+            </button>
+            <button class="number" value="2">
+                <div class="num" ><span>2</span></div>
+                <div class="text"><span>ㄴ</span><span>ABC</span></div>
+            </button>
+            <button class="number" value="3">
+                <div class="num" ><span>3</span></div>
+                <div class="text"><span>ㄷㅌ</span><span>DEF</span></div>
+            </button>
+            <button class="number" value="4">
+                <div class="num" ><span>4</span></div>
+                <div class="text"><span>ㄹ</span><span>GHI</span></div>
+            </button>
+            <button class="number" value="5">
+                <div class="num" ><span>5</span></div>
+                <div class="text"><span>ㅁ</span><span>JKL</span></div>
+            </button>
+            <button class="number" value="6">
+                <div class="num" ><span>6</span></div>
+                <div class="text"><span>ㅂㅍ</span><span>MNO</span></div>
+            </button>
+            <button class="number" value="7">
+                <div class="num" ><span>7</span></div>
+                <div class="text"><span></span>ㅅ</span><span>PRS</span></div>
+            </button>
+            <button class="number" value="8">
+                <div class="num" ><span>8</span></div>
+                <div class="text"><span>ㅇ</span><span>TUV</span></div>
+            </button>
+            <button class="number" value="9">
+                <div class="num" ><span>9</span></div>
+                <div class="text"><span>ㅈㅊ</span><span>WXY</span></div>
+            </button>
+            <button class="number" value="*">
+                <div class="num" ><span>*</span></div>
+                <div class="text"><span></span><span>,</span></div>
+            </button>
+            <button class="number" value="0">
+                <div class="num" ><span>0</span></div>
+                <div class="text"><span>ㅎ</span><span>.QZ</span></div>
+            </button>
+            <button class="number" value="#">
+                <div class="num" ><span>#</span></div>
+                <div class="text"><span></span><span>;</span></div>
+            </button>
+        </div>
+        <div class="call_box">
+            <div class="icons"><i class="fas fa-microphone"></i><span>소리끔</span></div>
+            <div id="google_cons"><span class="material-icons-outlined">dialpad</span><span>키패드</span></div>
+            <div class="icons"><i class="fas fa-volume-up"></i><span>오디오</span></div>
+            <div class="icons"><i class="fas fa-plus"></i><span>통화추가</span></div>
+            <div class="icons"><i class="fas fa-video"></i><span>영상통화</span></div>
+            <div class="icons"><i class="far fa-user-circle"></i><span>연락처</span></div>
+        </div>
+        <div class="calling"><i class="fas fa-phone-alt icon"></i></div>
+    </div>
+    <script src="/Day10/calling.js"></script>
+</body>
+</html>
