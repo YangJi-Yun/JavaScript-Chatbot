@@ -22,7 +22,6 @@ button {
   border: none;
   border-radius: 5px;
 }
-
 .top {
   width: 60%;
   text-align: center;
@@ -31,7 +30,7 @@ button {
   display: flex;
   flex-direction: column;
 }
-.top #answerTxt {
+.top #answerBox {
   margin: 20px;
   font-size: 1.5em;
   white-space: pre-line;
@@ -42,7 +41,6 @@ button {
   min-width: 400px;
   height: 40px;
 }
-
 .sort {
   display: inline-block;
 }
@@ -57,7 +55,6 @@ button {
 .sort .next {
   float: right;
 }
-
 .middle {
   text-align: center;
   margin: 40px 0;
@@ -66,13 +63,10 @@ button {
   font-size: 10em;
   color: var(--orange-color);
 }
-.bottom {
-  display: flex;
-  justify-content: center;
-}
 .bottom #answer {
   border: 1px solid var(--orange-color);
 }
 .bBtn {
   margin-left: 20px;
+  height: 32px;
 }
