@@ -20,7 +20,7 @@ let qustionArr=[
 ];
 
 smile.addEventListener('click', () => {
-    answerBox.innerHTML="스마일에 대해 물어보세요.";
+    answerBox.innerHTML="물어보세요.";
     readySet();    
     createButton();
     type=1;
@@ -32,7 +32,6 @@ quiz.addEventListener('click', () => {
     answerBox.innerHTML=qustionArr[0].q;
 });
 
-
 snowing.addEventListener('click', () => {
     readySet();
     createButton();
@@ -42,8 +41,8 @@ snowing.addEventListener('click', () => {
     }
     answerBox.innerHTML="♪펑펑 눈이옵니다♬"
     answerBox.style.color="white";
+    document.querySelector('.bottom').style.display="none";
 });
-
 
 bBtn.addEventListener('click', () => {
     correctAnswer();
@@ -54,17 +53,32 @@ bBtn.addEventListener('click', () => {
     }
 });
 
+
+let say;
+let text=":D";
+
 function introduce(){
     if(correct.includes('나이') || correct.includes('몇살') || correct.includes('age')){
         str="서른마흔다섯입니다.";
     }else if(correct.includes('성별') || correct.includes('gender') || correct.includes('sex')) {
         str="남자입니다.";
+    }else if(correct.includes('따라하기') || correct.includes('따라해')){
+        say=answer.value;
+        str=say.concat(' ', text);
+    }else if(correct.includes('그만') || correct.includes('그만해') || correct.includes('그만따라')){
+        if(i==0){
+            i++;
+            str="싫어 싫어~!! 나랑 더 놀자!! :＊)";
+        }else{
+            str="알았어.... :(";
+            i=0;
+        }
     }else if(correct==""){
         alert('질문을 해주세요');
-        str="스마일에 대해 물어보세요";
+        str="물어보세요";
     }else{
         alert('정확한 질문을 해주세요');
-        str="스마일에 대해 물어보세요";
+        str="물어보세요";
     }
     answer.value="";
     answer.focus();
@@ -84,6 +98,7 @@ function startQuiz(){
     if(i>=qustionArr.length){
         answerBox.innerHTML=qustionArr.length+"개 중에 "+cnt+"개 맞췄습니다.";
         i=0;
+        cnt=0;
         return;
     }else{
         answerBox.innerHTML=qustionArr[i].q;
@@ -109,6 +124,7 @@ function randomPosition(){
 function readySet(){
     smile.style.display="none";
     quiz.style.display="none";
+    document.querySelector('.bottom').style.display="block";
     snowing.style.display="none";
     topTxt.classList.add('sort');
 }
@@ -130,6 +146,8 @@ function createButton(){
     // })
 
     next.addEventListener('click', () => {
+        i=0;
+        cnt=0;
         history.go(0);
     })
 }

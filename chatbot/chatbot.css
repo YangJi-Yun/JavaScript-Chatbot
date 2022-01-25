@@ -25,6 +25,7 @@ button {
 }
 .top {
   width: 60%;
+  min-width: 500px;
   text-align: center;
   border: 3px solid var(--orange-color);
   border-radius: 10px;
@@ -63,6 +64,9 @@ button {
 .material-icons-outlined {
   font-size: 10em;
   color: var(--orange-color);
+}
+.bottom {
+  display: none;
 }
 .bottom #answer {
   border: 1px solid var(--orange-color);
