@@ -5,6 +5,8 @@ let topTxt=document.querySelector('.top');
 let answer=document.getElementById('answer');
 let result=document.getElementById('result');
 let bBtn=document.querySelector('.bBtn');
+let snowing=document.querySelector('.snowing');
+let snowBox=document.querySelector('.snowBox');
 let correct;
 let back; let next; let str;
 let cnt=0;
@@ -21,28 +23,27 @@ smile.addEventListener('click', () => {
     answerBox.innerHTML="스마일에 대해 물어보세요.";
     readySet();    
     createButton();
-
-    // back.addEventListener('click', () => {
-    //     history.go(-1);
-    // })
-
-    next.addEventListener('click', () => {
-        history.go(0);
-    })
-
     type=1;
 });
 
 quiz.addEventListener('click', () => {
     readySet();    
     createButton();
-
-    next.addEventListener('click', () => {
-        history.go(0);
-    })
-
     answerBox.innerHTML=qustionArr[0].q;
 });
+
+
+snowing.addEventListener('click', () => {
+    readySet();
+    createButton();
+    snowBox.style.display="block";
+    for(let i=0; i<300; i++){
+        createSnow();
+    }
+    answerBox.innerHTML="♪펑펑 눈이옵니다♬"
+    answerBox.style.color="white";
+});
+
 
 bBtn.addEventListener('click', () => {
     correctAnswer();
@@ -65,6 +66,8 @@ function introduce(){
         alert('정확한 질문을 해주세요');
         str="스마일에 대해 물어보세요";
     }
+    answer.value="";
+    answer.focus();
     answerBox.innerHTML=str;
 }
 
@@ -75,7 +78,6 @@ function startQuiz(){
     }else {
         alert("틀렸습니다.");
     }
-
     answer.value="";
     answer.focus();
     ++i;
@@ -94,9 +96,20 @@ function correctAnswer(){
     correct=correct.toLowerCase();
 }
 
+function createSnow(){
+    const el = document.createElement("div");
+    el.classList.add('snow');
+    el.style.marginLeft = randomPosition() + 'px';
+    snowBox.appendChild(el);
+}
+function randomPosition(){
+    return Math.floor(Math.random()*window.innerWidth);
+}
+
 function readySet(){
     smile.style.display="none";
     quiz.style.display="none";
+    snowing.style.display="none";
     topTxt.classList.add('sort');
 }
 
@@ -111,4 +124,13 @@ function createButton(){
 
     topTxt.appendChild(back);
     topTxt.appendChild(next);
+    
+     // back.addEventListener('click', () => {
+    //     history.go(-1);
+    // })
+
+    next.addEventListener('click', () => {
+        history.go(0);
+    })
 }
+

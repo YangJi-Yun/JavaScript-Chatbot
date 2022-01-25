@@ -1,0 +1,63 @@
+body {
+  height: 100vh;
+  /* 웹브라우저의 높이와 일치함 */
+  background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+  /* 원형 그라데이션 (중심에서 아래쪽이 원형 그라데이션의 시작 위치, 시작위치의 색상값, 종료 위치의 색상값); */
+  overflow: hidden;
+}
+
+.snow {
+  width: 10px;
+  height: 10px;
+  opacity: 0;
+  background: #fff;
+  border-radius: 50%;
+  animation: snow 10s linear infinite;
+  /* snow라는 keyframes룰을 적용하고 10초동안 작동한다 균일한 속도로 무한히 반복할 수 있도록  */
+}
+
+.snow:nth-of-type(2n) {
+  width: 7px;
+  height: 7px;
+  animation-duration: 7s;
+  animation-delay: 1s;
+}
+/* 2의 배수에 해당하는 부분은 크기가 7px/ 7초로 적용(10초보다 빨리 내린다)/ 1초 동안 딜레이가 되도록 */
+.snow:nth-of-type(2n + 1) {
+  animation-duration: 8s;
+  animation-delay: 2s;
+}
+.snow:nth-of-type(9n) {
+  animation-duration: 9s;
+  animation-delay: 3s;
+}
+
+@keyframes snow {
+  0% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+  20% {
+    opacity: 1;
+    transform: translate(-15px, 20vh);
+    /* x,y축 동시 적용(x값,  y값) */
+  }
+  40% {
+    opacity: 1;
+    transform: translate(15px, 40vh);
+  }
+  60% {
+    opacity: 1;
+    transform: translate(-15px, 60vh);
+  }
+  80% {
+    opacity: 1;
+    transform: translate(0, 80vh);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(100vh);
+  }
+  /* 애니메이션의 시작은 투명하다가 끝부분으로 갈 수록 불투명해진다
+    y축을 중심으로 위에서부터 아래로 내려가기 */
+}
