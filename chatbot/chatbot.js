@@ -5,13 +5,17 @@ let topTxt=document.querySelector('.top');
 let answer=document.getElementById('answer');
 let result=document.getElementById('result');
 let bBtn=document.querySelector('.bBtn');
+let order=document.querySelector('.order');
 let snowing=document.querySelector('.snowing');
 let snowBox=document.querySelector('.snowBox');
+
 let correct;
 let back; let next; let str;
 let cnt=0;
 let i=0;
 let type;
+let say;
+let text=":D";
 let qustionArr=[
     {q:'01) 학생들이 제일 싫어하는 피자는?', a:'책피자'},
     {q:'02) 비가 한 시간 동안 내리는 것은?', a:'추적60분'},
@@ -52,12 +56,10 @@ bBtn.addEventListener('click', () => {
         startQuiz();
     }
 });
-
-
-let say;
-let text=":D";
-
+let typewriter ;
 function introduce(){
+    document.querySelector('.bubble').style.display="none";
+
     if(correct.includes('나이') || correct.includes('몇살') || correct.includes('age')){
         str="서른마흔다섯입니다.";
     }else if(correct.includes('성별') || correct.includes('gender') || correct.includes('sex')) {
@@ -73,12 +75,26 @@ function introduce(){
             str="알았어.... :(";
             i=0;
         }
-    }else if(correct==""){
-        alert('질문을 해주세요');
-        str="물어보세요";
     }else{
-        alert('정확한 질문을 해주세요');
-        str="물어보세요";
+        document.querySelector('.bubble').style.display="block";
+        
+        if(cnt==0){
+            typewriter = new Typewriter(order,{loop:false});
+            typewriter.typeString('무슨 말인지 모르겠어요.')
+            .pauseFor(1000)
+            .deleteAll()
+            typewriter.typeString('다시 질문해주세요.')
+            .pauseFor(1000)
+            .start();
+            cnt++;
+        }else{
+            typewriter = new Typewriter(order,{loop:false});
+            typewriter.typeString('흠.. 여전히 모르겠어요. 다시 질문해주세요.')
+            .pauseFor(1000)
+            .start();
+            cnt=0;
+        }
+        str='물어보세요.';
     }
     answer.value="";
     answer.focus();

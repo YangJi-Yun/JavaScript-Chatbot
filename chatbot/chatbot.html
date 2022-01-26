@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Sharp|Material+Icons+Two+Tone|Material+Icons+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
     <link rel="stylesheet" href="./chatbot.css">
     <title>Chatbot</title>
 </head>
@@ -18,7 +19,13 @@
             <button class="tBtn snowing">눈이 내렸으면 좋겠어.</button>
         </div>
         <div class="middle">
-            <span class="material-icons-outlined">child_care</span>
+            <div class="iconBox">
+                <span class="material-icons-outlined">child_care</span>
+            </div>
+            <div class="bubble">
+                <img src="bubble.png" alt="bubble">
+                <div class="speech"><span class="order"></span></div>
+            </div>
         </div>
         <div class="bottom">
             <input type="text" id="answer" style="width:500px; height: 30px; " placeholder="메시지를 입력해주세요." >
@@ -26,6 +33,8 @@
         </div>
     </div>
     <div class="snowBox"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/TypewriterJS/2.18.2/core.min.js" integrity="sha512-g8TodWNzrsxJkADtGuwwvVND2MVKUuisGWZsj2/NtLA/XFDq9biQpeDMcJ8iu71OpabLfDxfEAdTQFdXjmV60A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="./chatbot.js"></script>
+
 </body>
 </html>

@@ -58,12 +58,43 @@ button {
   float: right;
 }
 .middle {
-  text-align: center;
   margin: 40px 0;
+  position: relative;
 }
-.material-icons-outlined {
+.middle .iconBox {
+  text-align: center;
+}
+.middle .iconBox .material-icons-outlined {
   font-size: 10em;
   color: var(--orange-color);
+}
+.middle .bubble {
+  position: absolute;
+  top: 0px;
+  left: 160px;
+  display: none;
+}
+.middle .bubble img {
+  width: 300px;
+  height: 80px;
+  transform: scaleX(-1);
+}
+.middle .bubble .speech {
+  font-size: 20px;
+  width: 230px;
+  height: 62px;
+  display: table;
+  position: absolute;
+  top: 8px;
+  left: 46px;
+}
+.middle .bubble .speech .order {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  white-space: pre-wrap;
+  word-break: break-all;
+  color: var(--white-color);
 }
 .bottom {
   display: none;
