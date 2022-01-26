@@ -8,13 +8,13 @@ let bBtn=document.querySelector('.bBtn');
 let order=document.querySelector('.order');
 let snowing=document.querySelector('.snowing');
 let snowBox=document.querySelector('.snowBox');
-
 let correct;
 let back; let next; let str;
 let cnt=0;
 let i=0;
 let type;
 let say;
+let typewriter ;
 let text=":D";
 let qustionArr=[
     {q:'01) 학생들이 제일 싫어하는 피자는?', a:'책피자'},
@@ -56,7 +56,7 @@ bBtn.addEventListener('click', () => {
         startQuiz();
     }
 });
-let typewriter ;
+
 function introduce(){
     document.querySelector('.bubble').style.display="none";
 
