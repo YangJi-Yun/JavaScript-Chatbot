@@ -1,20 +1,21 @@
+let topTxt=document.querySelector('.top');
+let answerBox=document.getElementById('answerBox');
+let result=document.getElementById('result');
 let smile=document.querySelector('.smile');
 let quiz=document.querySelector('.quiz');
-let answerBox=document.getElementById('answerBox');
-let topTxt=document.querySelector('.top');
-let answer=document.getElementById('answer');
-let result=document.getElementById('result');
 let bBtn=document.querySelector('.bBtn');
+let answer=document.getElementById('answer');
+let bubble=document.querySelector('.bubble');
 let order=document.querySelector('.order');
-let snowing=document.querySelector('.snowing');
 let snowBox=document.querySelector('.snowBox');
+let snowing=document.querySelector('.snowing');
 let correct;
 let back; let next; let str;
 let cnt=0;
 let i=0;
 let type;
 let say;
-let typewriter ;
+let typewriter=null;
 let text=":D";
 let qustionArr=[
     {q:'01) 학생들이 제일 싫어하는 피자는?', a:'책피자'},
@@ -22,6 +23,20 @@ let qustionArr=[
     {q:'03) 가장 잠을 많이 자는 연예인은?', a:'이미자'},
     {q:'04) 딸기가 직장을 잃으면?', a:'딸기시럽'}
 ];
+let communication=[
+    {"speaker":"나이", "listener":"서른마흔다섯입니다."},
+    {"speaker":"몇살", "listener":"서른마흔다섯입니다."},
+    {"speaker":"age", "listener":"서른마흔다섯입니다."},
+    {"speaker":"성별", "listener":"남자입니다"},
+    {"speaker":"gender", "listener":"남자입니다"},
+    {"speaker":"sex", "listener":"남자입니다"},
+    {"speaker":"그만", "listener":"싫어 싫어~!! 나랑 더 놀자!! :＊)"},
+    {"speaker":"그만해", "listener":"싫어 싫어~!! 나랑 더 놀자!! :＊)"},
+    {"speaker":"그만따라", "listener":"싫어 싫어~!! 나랑 더 놀자!! :＊)"}
+];
+let word;
+let speaker;
+let listener;
 
 smile.addEventListener('click', () => {
     answerBox.innerHTML="물어보세요.";
@@ -52,6 +67,10 @@ bBtn.addEventListener('click', () => {
     correctAnswer();
     if(type===1){
         introduce();
+    }else if(type==2){
+        learnSpeak();
+    }else if(type==3){
+        askAgain();
     }else{
         startQuiz();
     }
@@ -59,12 +78,7 @@ bBtn.addEventListener('click', () => {
 
 function introduce(){
     document.querySelector('.bubble').style.display="none";
-
-    if(correct.includes('나이') || correct.includes('몇살') || correct.includes('age')){
-        str="서른마흔다섯입니다.";
-    }else if(correct.includes('성별') || correct.includes('gender') || correct.includes('sex')) {
-        str="남자입니다.";
-    }else if(correct.includes('따라하기') || correct.includes('따라해')){
+    if(correct.includes('따라하기') || correct.includes('따라해')){
         say=answer.value;
         str=say.concat(' ', text);
     }else if(correct.includes('그만') || correct.includes('그만해') || correct.includes('그만따라')){
@@ -76,31 +90,75 @@ function introduce(){
             i=0;
         }
     }else{
-        document.querySelector('.bubble').style.display="block";
-        
-        if(cnt==0){
+        for(let j=0; j<communication.length; j++){
+            word=communication[j].speaker;
+            console.log(word);
+            break;
+        }
+        if(correct.includes(word)){
+            str=communication[j].listener;
+        }else{
+            bubble.style.display="block";
             typewriter = new Typewriter(order,{loop:false});
             typewriter.typeString('무슨 말인지 모르겠어요.')
             .pauseFor(1000)
             .deleteAll()
-            typewriter.typeString('다시 질문해주세요.')
+            typewriter.typeString('말을 가르쳐 주시겠어요?(네 or 아니요)')
             .pauseFor(1000)
             .start();
-            cnt++;
-        }else{
-            typewriter = new Typewriter(order,{loop:false});
-            typewriter.typeString('흠.. 여전히 모르겠어요. 다시 질문해주세요.')
-            .pauseFor(1000)
-            .start();
-            cnt=0;
+            speaker=correct;
+            if(correct=='네'){
+                typewriter = new Typewriter(order,{loop:false});
+                typewriter.typeString('대답을 입력해주세요')
+                .pauseFor(1000)
+                .start();
+                type=2;
+            }else if(correct=='아니요'){
+                history.go(0);
+            }
+            str='물어보세요.';
         }
-        str='물어보세요.';
     }
     answer.value="";
     answer.focus();
     answerBox.innerHTML=str;
+    }
+
+function learnSpeak(){
+    typewriter = new Typewriter(order,{loop:false});
+    console.log(answer.value.length);
+    if(answer.value.length>0){
+        listener=answer.value;
+        communication.push({"speaker":`${speaker}`, "listener":`${listener}`});
+        typewriter.deleteAll()
+        .typeString('"스마일"이 한 층 더 똑똑해졌어요 :D')
+        .pauseFor(1000)
+        .start();
+        answer.value="";
+        answer.focus();
+    }else{
+        typewriter.typeString('가르쳐주기를 종료할까요?(네 or 아니요)')
+        .pauseFor(1000)
+        .start();
+        type=3;
+    }
 }
 
+function askAgain(){
+    if(correct=='네'){
+        typewriter = new Typewriter(order,{loop:false});
+        typewriter.typeString('가르쳐주기를 종료합니다.')
+        .pauseFor(1000)
+        .start();
+        history.go(0);
+    }else{
+        typewriter = new Typewriter(order,{loop:false});
+        typewriter.typeString('대답을 입력해주세요')
+        .pauseFor(1000)
+        .start();
+        type=2;
+    }
+}
 function startQuiz(){
     if(correct===qustionArr[i].a){
         alert("정답입니다.");
